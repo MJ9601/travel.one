@@ -1,3 +1,4 @@
+ /* general properties */
  *{
     margin: 0;
     padding: 0;
@@ -12,6 +13,8 @@ html{
     /* 1rem = 10px */
     display: flex;
     flex-direction: row;
+    background-color: rgb(222, 231, 238);
+    filter: brightness(-.25);
 } 
 
 :root{
@@ -26,13 +29,21 @@ body{
     width: 100%;
 }
 
+/* general class */
 .center{
     display:flex;
     justify-content: center;
     align-items: center;
 }
+.pricex{
+    cursor: pointer;
+}
 
+.upperClass{
+    text-transform: uppercase;
+}
 
+/* whole container */
 .container{
     background-color: (var(--secondart-color));
     margin: 3.5rem;
@@ -45,6 +56,7 @@ body{
     position: relative;
 }
 
+/* header section */
 .header{
     width: 100%;
     height: calc(100vh - 7rem);
@@ -56,8 +68,10 @@ body{
     perspective: 100rem; /* lower value create more intensive 3D animation effect */
 
     position: relative;
+    overflow: hidden ;
 }
 
+/* header text section */
 .textContainer{
     margin:auto 0;
     display: flex;
@@ -86,6 +100,9 @@ body{
 
 }
 
+
+
+/* logo section */
 .logo h1{
     display: flex;
     justify-content: space-between;
@@ -149,36 +166,42 @@ body{
 .sepia { filter: sepia(100%); }
 .huerotate { filter: hue-rotate(180deg); }
 .rss.opacity { filter: opacity(50%); } */
+
+
+/* header images section */
 .animateImgs {
     position: relative;
     z-index: 200;
 }
 .animateImg1{
     visibility:hidden;
-    opacity:0;
+    /* opacity:0; */
     right: -30rem;
     top: 40rem;
     width: 200%;
     animation: imgFloat1 14s 3s infinite ;
     position: relative;
+    z-index: 150;
 }
 .animateImg2{
     visibility:hidden;
-    opacity:0;
+    /* opacity:0; */
     right: -40rem;
     top: -40rem;
     width: 200%;
     animation: imgFloat2 15s 1s infinite ;
     position: relative;
+    z-index: 150;
 }
 .animateImg3{
     visibility:hidden;
-    opacity:0;
+    /* opacity:0; */
     left: -80rem;
     top: -40rem;
     width: 200%;
      animation: imgFloat3 15s 5s infinite ;
     position: relative;
+    z-index: 150;
 } 
 
 @keyframes imgFloat1 {
@@ -203,10 +226,10 @@ body{
     0%{ visibility:visible; fransform: translateZ(60rem) translateX(-100rem) translateY(100rem); 
         opacity: .9;
         filter: brightness(.40) grayscale(50%) contrast(20%);}
-    40%{transform: translateZ(-150rem) translateX(150rem);
+    40%{transform: translateZ(-150rem) translateX(120rem);
         filter:  brightness(0.25) grayscale(50%);
         opacity: .8;}
-    70%{transform: translateZ(-400rem) translateX(-20rem) translateY(50rem);
+    70%{transform: translateZ(-400rem) translateX(-10rem) translateY(50rem);
         filter: brightness(.1) grayscale(50%);
         opacity: .6;}
     100%{transform: translateZ(-800rem) translateX(50rem);
@@ -233,3 +256,236 @@ body{
 
 
 }
+
+
+/* second section */
+.tourSection {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(222, 231, 238);
+    filter: brightness(-.25);
+    margin: 4rem auto;
+}
+
+.headerDiv{
+    width: 100%;
+    height: 10rem;
+    margin: 5rem auto;
+}
+.headerDiv h1 {
+    text-align: center;
+    font-size: 6rem;
+    color: #0414ec;
+    font-weight: 1200;
+    text-transform: capitalize;
+    font-family: 'Vollkorn';
+    position: relative;
+}
+
+.displayCards{
+    margin: 5rem 5rem 10rem;
+    height: calc(100vh -40rem);
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    height: 73rem;
+    /* border: 1px solid black; */
+    position: relative;
+    perspective: 150rem;
+}
+
+
+.front-card{
+    text-align: center;
+    background-color: #eee;
+    height: inherit;
+    position: relative;
+    border-radius: .7rem;
+    z-index: 15;
+    opacity: .98;
+    transition: opacity .6s, tranform .6s, box-shadow .6s;
+}
+
+.change > .front-card{
+    transform:  translateZ(-5rem) translateX(3rem);
+    opacity: .55;
+    z-index: 0;
+    -webkit-box-shadow: 10px 10px 16px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 16px -2px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 16px -2px rgba(0,0,0,0.75);
+}
+
+.img-tour {
+    width: 100%;
+    height: 20 rem;
+    background-color: #000;
+    border-top-right-radius: .7rem;
+    border-top-left-radius: .7rem;
+
+
+}
+.img-tour img{
+    width: 100%;
+    height: 100%;
+    filter: opacity(.9);
+    border-top-right-radius: .7rem;
+    border-top-left-radius: .7rem;
+}
+.price{
+    width: 8rem;
+    height: 3rem;
+    background-color: aliceblue;
+    border: none;
+    border-radius: .5rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+    z-index: 200;
+    color: #000;
+    font-weight: 400;
+    font-size: 1.6rem;
+    display: none
+
+}
+.tourName{
+    font-size: 2.5rem;
+    font-weight: 800;
+    position: absolute;
+    right: 2rem;
+    top: 18rem;
+    color: #eee;
+}
+.cardDetails ul{
+    margin: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 2rem;
+    font-weight: 900;
+    width: 80%;
+}
+.text-details{
+    width: 100%;
+    margin: 2rem auto 0;
+    padding: 1rem;
+    border-bottom: .2rem solid rgb(108, 156, 247);
+}
+.back-card{
+    position: absolute;
+    background-color: #0011ff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-box-shadow: 10px 10px 16px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 16px -2px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 16px -2px rgba(0,0,0,0.75);
+    display: flex;
+    border-radius: .7rem;
+    transform: translateZ(-5rem) translateX(3rem);
+    opacity: .55;
+    transition: opacity .6s, tranform .6s, box-shadow .6s;
+}
+
+.change > .back-card{
+    transform:  translateZ(0rem) translateX(0rem);
+    opacity: .8;
+    box-shadow: none;
+    
+
+}
+
+.pricexDiv{
+    width: 100%;
+    height: 100%;
+    cursor:default;
+    display: flex;
+
+}
+
+.displayPrice{
+    margin: auto;
+    display: flex-box;
+    flex-direction: column;
+}
+.displayPrice h1 {
+    color: #eee;
+    font-size: 6rem;
+    font-weight: 600;
+    margin: 2rem auto;
+    text-shadow: .2rem -.4rem rgba(0, 0, 0, .7);
+}
+.booking{
+    margin: auto;
+    width: 15rem;
+    height: 6rem;
+    border-radius: 3rem;
+    -webkit-box-shadow: 4px 2px 16px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 2px 16px -2px rgba(0,0,0,0.75);
+    box-shadow: 4px 2px 16px -2px rgba(0,0,0,0.75);
+    cursor: pointer;
+    color: #0011ff;
+    font-size: 3rem;
+    border: none;
+    font-weight: 900;
+    letter-spacing: .1rem;
+
+}
+.stories{
+    margin-right: 5rem auto;
+    width: 100%;
+    height: 100vh;
+
+
+}
+.background-video{
+    width: 100%;
+    height: calc(100vh - 10rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.story{
+    margin-top: 10rem;
+    padding: 5rem;
+    width: 80%;
+    height: 25rem;
+    background-color: #fff;
+    transform: skew(30deg);
+
+}
+.story div{
+    transform: skew(-15deg);
+    display: flex;
+    align-items: center;
+}
+.story-img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    margin: 0 2rem 0 0 ;
+}
+.story-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+.story-wrapper{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    justify-content: left;
+}
+
+
+
